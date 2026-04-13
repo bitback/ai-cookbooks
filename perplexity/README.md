@@ -1,8 +1,8 @@
-# Make Your LLM Admit What It Doesn't Know
+# Make Perplexity Admit What It Doesn't Know
 
-## A 60-word system prompt that stops Perplexity (and other LLMs) from confidently making things up
+## A 60-word system prompt that stops Perplexity from confidently making things up
 
-**TL;DR**: LLMs with web search hallucinate URLs, dates, and specific numbers at a shocking rate - and they do it with full confidence. One short system message forces them to tag every claim by source quality and flag unknowns. Tested empirically on Perplexity API. The before/after is night and day.
+**TL;DR**: Perplexity with web search hallucinates URLs, dates, and specific numbers at a shocking rate - and does it with full confidence. One short system message forces it to tag every claim by source quality and flag unknowns. Tested empirically on Perplexity API (sonar-pro). The before/after is night and day. The pattern should generalize to any LLM that accepts a system message, but this repo only documents the Perplexity test.
 
 ---
 
@@ -134,11 +134,11 @@ If you're using Perplexity through an MCP wrapper (like Claude Code), check whet
 
 ## Does this work with other LLMs?
 
-Yes. The same prompt (or a trimmed variant) works with Claude, GPT-4, Gemini, and any other LLM that accepts a system message. I've tested it with Claude in agent tool use contexts and it behaves the same way - structured tags, honest `[UNKNOWN]`, fewer hallucinations.
+Not tested here. The empirical before/after in this repo is Perplexity API only (sonar-pro). The pattern is model-agnostic in principle - any LLM that accepts a system message can be told to tag its claims - but I have not run the same A/B on Claude, GPT, or Gemini, so I am not claiming it. If you reproduce it on another model, I would like to hear how it went.
 
-The only adaptation: if the LLM doesn't have web access, drop the `[STALE]` instruction - it doesn't apply to closed-book responses.
+The only adaptation for closed-book use (no web access): drop the `[STALE]` instruction - it does not apply when there are no dated sources to flag.
 
-For closed-book LLMs, a trimmed version:
+A trimmed version for closed-book use:
 
 ```
 Before answering, state ASSUMPTIONS and SCOPE. Tag every claim: [FACT] for things you're certain of, [INFERENCE] for reasoning, [UNKNOWN] for gaps. Challenge the premise if the question is malformed. Precision > hedging.
