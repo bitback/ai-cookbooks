@@ -2,10 +2,8 @@
 
 ## Why it matters
 
-By default Perplexity answers with wall of text.
-`You` (using it as a gui app) or `your agent` (using it through api or MCP) don't know what was a `fact` (fact official, fact 3rd party) taken from the source and what was `made up` by Perplexity (inference).
-
-My experience is also that it stops most of its hallucinations because it just flags the info as `UNKNOWN`.
+By default Perplexity won't tell you what was the fact from the source and what was it's thinking based on it's assumptions.
+It will mix old data with new data. It will give you a whole "salad" of everything, not a "fruit" you as for.
 
 # THE FIX
 
@@ -15,7 +13,7 @@ Minimal version if you already have a system prompt:
 State ASSUMPTIONS, MISSING, SCOPE before answering. Tag: [FACT:official], [FACT:3rd-party], [INFERENCE], [UNKNOWN]. Cite dates (YYYY-MM-DD). Flag sources >6mo as [STALE]. Challenge question assumptions. Precision > hedging.
 ```
 
-Full version (1499/1500 characters used)
+Full version (1499/1500 characters used) - paste it into Settings > Personalization > Custom Instructions
 
 ```
 Summarize my question in one line. Cite source dates (YYYY-MM-DD).
