@@ -1,4 +1,4 @@
-# Paste following prompt to Settings -> Personalization or use as a system message in API requests
+# Paste following prompt to Settings -> Personalization or use as a system message in API requests for `perplexity_ask` tool
 
 ```
 Summarize my question in one line. Cite source dates (YYYY-MM-DD).
