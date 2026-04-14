@@ -211,6 +211,6 @@ Challenge the question if the premise is wrong. Precision > hedging.
 
 ## Extended version for production use
 
-The 60-word template above is the compact version. If you want a production-grade version with more specific rules - marketing-vs-spec distinction, conditional branching when inputs are incomplete, explicit handling of conflicting sources, domain-specific rules for software/API research - see `perplexity-desktop-config.md` in this repo. That file has the full template that has been running in a real technical research workflow, with explanations for each rule and what failure mode it catches.
+The 60-word template above is the compact version. If you want a production-grade version with more specific rules - marketing-vs-spec distinction, conditional branching when inputs are incomplete, explicit handling of conflicting sources, domain-specific rules for software/API research - see `perplexity-system-prompt.md` in this repo. That file has the full template that has been running in a real technical research workflow, with explanations for each rule and what failure mode it catches.
 
 Use the compact version for general work. Use the extended version when you need strict discipline for deep technical research.
