@@ -3,7 +3,8 @@
 ## Why it matters
 
 By default Perplexity won't tell you what was the fact from the source and what was it's thinking based on it's assumptions.
-It will mix old data with new data. It will give you a whole "salad" of everything, not a "fruit" you as for.
+It will mix old data with new data.
+It will give you a whole "salad" of everything, not a "fruit" you ask for.
 
 # THE FIX
 
