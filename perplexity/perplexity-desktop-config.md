@@ -6,11 +6,11 @@ The 60-word template in the main README is the compact version. This file is the
 
 ## Where to paste it
 
-**Perplexity Desktop app:** Settings -> AI Profile -> "What should the Assistant know about you to provide better responses?" or similar custom instruction field. The exact label depends on Perplexity version - look for AI Profile, Personalization, or Custom Instructions.
+**Perplexity Desktop app:** Settings -> Personalization
 
-**Perplexity API (Sonar):** Paste as the `system` message in every `messages` array. Never send a `user` message without this system message preceding it.
+**Perplexity API (Sonar):** Tell your AI agent to paste this as the `system` message in every `messages` array. Never send a `user` message without this system message preceding it.
 
-## The full template
+## The full template (1499/1500 chars).
 
 ```
 Summarize my question in one line. Cite source dates (YYYY-MM-DD).
