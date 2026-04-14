@@ -1,16 +1,4 @@
-# Perplexity Desktop App Configuration
-
-## Production-grade system prompt for Perplexity (desktop and API)
-
-The 60-word template in the main README is the compact version. This file is the extended version - a production-grade system prompt that has been running in a real workflow and catches more edge cases. Use this one if you want strict research output for technical work.
-
-## Where to paste it
-
-**Perplexity Desktop app:** Settings -> Personalization
-
-**Perplexity API (Sonar):** Tell your AI agent to paste this as the `system` message in every `messages` array. Never send a `user` message without this system message preceding it.
-
-## The full template (1499/1500 chars).
+# Paste following prompt to Settings -> Personalization or use as a system message in API requests
 
 ```
 Summarize my question in one line. Cite source dates (YYYY-MM-DD).
@@ -42,17 +30,17 @@ The template has ten distinct rules. Each one catches a specific failure mode. H
 
 ### "Summarize my question in one line"
 
-Forces the model to prove it understood the question before committing to an answer. If the one-line summary is wrong, you spot it immediately and correct before reading the full response. Without this, you sometimes get a perfectly-written answer to the wrong question.
+Forces the model to prove it understood the question before committing to an answer. If the one-line summary is wrong, you spot it immediately and correct before reading the full response. Without this, you sometimes get a perfectly-written answer to the wrong question. This is also useful if you paste your response to other model. Without it it wouldn't know the context of the answer.
 
 ### "PRIORITY: Precision > Diplomacy > Completeness. One truth > ten maybes"
 
 This is the most important line. It sets the model's utility function. Default LLM training optimizes for helpfulness and completeness - the model would rather give you ten hedged possibilities than one committed truth with conditions. This line inverts that ordering. The model will now refuse to answer rather than guess, and will answer short rather than pad.
 
-"One truth > ten maybes" is the operational version of this. It tells the model that padding an answer with alternatives is worse than saying "I don't know about the other alternatives, but X is confirmed."
-
 ### "Tag claims: [FACT:official], [FACT:3rd-party], [FACT:analyst], [INFERENCE], [UNKNOWN]"
 
 Same as the compact version but with `[FACT:analyst]` added. That tag matters when researching market data, pricing trends, or industry stats where the "source" is an analyst firm (Gartner, Forrester, IDC). Analyst reports are not primary sources but they're also not random third parties. Giving them their own tag lets you weight them correctly.
+
+This tagging technique is critical for treating the response as research data feed to other LLM. Without it it wouldn't have the ability to differ facts from inference (thinking/hallucinations).
 
 ### "Distinguish marketing claims from contractual/technical specs. Flag marketing figures"
 
