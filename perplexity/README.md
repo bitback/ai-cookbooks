@@ -2,16 +2,19 @@
 
 ## Why it matters
 
-By default Perplexity won't tell you what was the fact from the source and what was it's thinking based on it's assumptions.
+By default Perplexity won't tell you what part of the response is a fact and what part is assumptions.
 It will mix old data with new data, inference, assumptions with facts.
 It will give you a whole "salad" of everything, not a "fruit" you ask for.
 
 # THE FIX
 
-In Perplexity Gui (app) paste it into Settings > Personalization > Custom Instructions
+In Perplexity GUI (app) paste it into Settings > Personalization > Custom Instructions
 
-In cases of MCP or API, use fast `perplexity_ask` tool with exact system prompt as statet below.
-You also may ask your agent (claude code, codex, etc) to write a skill that enforces to use this system prompt.
+In cases of MCP or API, use fast `perplexity_ask` tool with exact system prompt as stated below.
+You also may ask your agent (claude code, codex, etc) to write a skill that enforces to use this system prompt when using `perplexity_ask`.
+Simple as that. 
+
+Write thanks to zbigniew.gralewski@bitback.pl.
 
 ```
 Summarize my question in one line. Cite source dates (YYYY-MM-DD).
